@@ -242,11 +242,11 @@ if __name__ == '__main__':
         torrent_files = sys.argv[1:]
         for torrent_file in torrent_files:
             if os.path.exists(torrent_file):
-                print 'Parsing file {}'.format(torrent_file)
+                print('Parsing file {}'.format(torrent_file))
             else:
                 sys.exit('Unable to find file {}'.format(torrent_file))
     else:
-        print 'Parsing test torrent files ..' # this is helpful when debugging
+        print('Parsing test torrent files ..') # this is helpful when debugging
 
         test_files_rel_path = '/../tests/test_data/'
         cwd = os.path.dirname(os.path.realpath(__file__))
@@ -255,6 +255,6 @@ if __name__ == '__main__':
 
     for torrent_file in torrent_files:
         tp = TorrentParser(torrent_file)
-        print torrent_file
-        print tp.get_tracker_url(), tp.get_creation_date(), tp.get_client_name(), tp.get_files_details()
-        print '*' * 80
+        print(torrent_file)
+        print(tp.get_tracker_url(), tp.get_creation_date(), tp.get_client_name(), tp.get_files_details())
+        print('*' * 80)
