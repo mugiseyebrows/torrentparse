@@ -8,6 +8,7 @@ TODOs:
     . Use of for loops inside test cases seems smelly. Investigate and fix.
 
 '''
+from __future__ import unicode_literals
 from datetime import datetime
 import os
 import unittest
@@ -59,7 +60,9 @@ class TestTorrentParse(unittest.TestCase):
         import os
         for torrent_file in TORRENTS_INFO:
             tp = TorrentParser(os.path.join(test_data_dir, torrent_file))
-            self.assertItemsEqual(tp.get_files_details(), TORRENTS_INFO[torrent_file]['file_details'])
+            #print(tp.get_files_details())
+            #print(TORRENTS_INFO[torrent_file]['file_details'])
+            self.assertEqual(tuple(tp.get_files_details()), TORRENTS_INFO[torrent_file]['file_details'])
 
 if __name__ == "__main__":
     unittest.main()
